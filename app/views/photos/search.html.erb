@@ -1,0 +1,28 @@
+<h1>Search results: <%= pluralize(@results.count, "photo") %></h1>
+<div class="container">
+  <% number = 0%>
+  <% @results.each do |photo| %>
+    <% if number == 0 %>
+      <div class="row d-flex justify-content-evenly mb-2">
+    <% end %> 
+
+
+    <div class="card" style="width: 300px; padding: 0px;">
+      <img src=<%=photo.link%> alt="image" class="card-img-top" style="width: 298px; height: 250px;">
+        <div class="card-body">
+        <h5 class="card-title"><%= photo.name %></h5>
+        <%if user_signed_in?%>
+          <%= link_to 'Edit', edit_photo_path(photo), class: "btn btn-secondary"%>
+          <%= link_to 'Destroy', photo, method: :delete, class: "btn btn-dark"%>
+        <%end%>
+        </div>
+      </div>
+
+ <% if number == 4 %>
+        </div>
+        <% number = -1 %>
+      <% end %>
+    <%number+=1%> 
+
+  <% end %>
+</div>

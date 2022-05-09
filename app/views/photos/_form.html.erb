@@ -1,0 +1,30 @@
+<%= form_with(model: photo) do |form| %>
+  <% if photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+        <% photo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3 w-25">
+    <%= form.text_field :link, class: 'form-control', placeholder:'Link' %>
+  </div>
+
+  <div class="field mb-3 w-25">
+    <%= form.text_field :name, class: 'form-control', placeholder:'Title' %>
+  </div>
+
+  <div class="field mb-3 w-25">
+    <%= form.text_field :tags, class: 'form-control', placeholder:'Tags' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-secondary' %>
+    <%= link_to 'Back', photos_path, class:'btn btn-dark ms-2' %>
+  </div>
+<% end %>

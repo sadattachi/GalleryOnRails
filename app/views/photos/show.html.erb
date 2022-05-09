@@ -1,0 +1,9 @@
+<div class="card" style="width: 300px; padding: 0px;">
+        <img src=<%=@photo.link%> alt="image" class="card-img-top" style="width: 298px; height: 250px;">
+
+  <div class="card-body">
+    <h5 class="card-title"><%= @photo.name %></h5>
+    <%= link_to 'Edit', edit_photo_path(@photo), class: "btn btn-secondary" %>
+    <%= link_to 'Back', photos_path, class: "btn btn-dark" %>
+  </div>
+</div>
